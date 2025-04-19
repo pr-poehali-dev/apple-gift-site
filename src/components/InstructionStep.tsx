@@ -1,21 +1,23 @@
-type InstructionStepProps = {
+import { ReactNode } from "react";
+
+interface InstructionStepProps {
   number: number;
   title: string;
   description: string;
-  icon: React.ReactNode;
-};
+  icon: ReactNode;
+}
 
 const InstructionStep = ({ number, title, description, icon }: InstructionStepProps) => {
   return (
-    <div className="relative flex flex-col items-center p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-      <div className="absolute -top-5 flex items-center justify-center w-10 h-10 rounded-full bg-apple-blue text-white font-bold">
-        {number}
-      </div>
-      <div className="mt-6 text-apple-blue mb-4">
+    <div className="flex flex-col items-center text-center">
+      <div className="w-16 h-16 flex items-center justify-center bg-apple-light rounded-full mb-4">
         {icon}
       </div>
-      <h3 className="text-xl font-medium text-apple mb-2">{title}</h3>
-      <p className="text-apple-gray text-center">{description}</p>
+      <div className="mb-2 flex items-center justify-center w-8 h-8 rounded-full bg-apple-blue text-white text-sm font-medium">
+        {number}
+      </div>
+      <h3 className="text-xl font-medium mb-2">{title}</h3>
+      <p className="text-apple-gray">{description}</p>
     </div>
   );
 };

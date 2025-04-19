@@ -1,44 +1,48 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="relative bg-apple-light overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-apple-light sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-extrabold text-apple sm:text-5xl md:text-6xl">
-                <span className="block">Apple Gift Card</span>
-                <span className="block text-apple-blue">Подарите впечатления</span>
-              </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Приобретите подарочную карту Apple Gift Card для покупок в App Store, iTunes Store, 
-                Apple Books и оплаты подписок Apple. Один подарок — миллион возможностей.
-              </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-full">
-                  <Link to="/products">
-                    <Button className="w-full flex items-center justify-center px-8 py-6 border border-transparent text-base font-medium rounded-full text-white bg-apple-blue hover:bg-opacity-90 md:py-6 md:text-lg md:px-10">
-                      Выбрать карту
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </main>
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-apple-light">
+      <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
+        <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
+            Apple Gift Card
+          </h1>
+          <p className="text-xl md:text-2xl text-apple-gray mb-8 leading-relaxed">
+            Подарите радость покупок в мире Apple. Идеальный подарок для любого случая.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button 
+              className="bg-apple-blue text-white hover:bg-opacity-90 rounded-full px-8 py-6"
+              asChild
+            >
+              <Link to="/products">
+                Выбрать карту
+              </Link>
+            </Button>
+            <Button 
+              variant="outline"
+              className="border-apple-gray text-apple-gray hover:bg-transparent hover:text-black hover:border-black rounded-full px-8 py-6"
+              asChild
+            >
+              <Link to="/instructions">
+                Как использовать
+              </Link>
+            </Button>
+          </div>
+        </div>
+        <div className="md:w-1/2 flex justify-center">
+          <img 
+            src="/placeholder.svg" 
+            alt="Apple Gift Card" 
+            className="w-full max-w-md object-contain drop-shadow-xl transform hover:scale-105 transition-transform duration-500"
+          />
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="/placeholder.svg"
-          alt="Apple Gift Card"
-        />
-      </div>
-    </div>
+      
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-apple-gray/20 to-transparent" />
+    </section>
   );
 };
 
